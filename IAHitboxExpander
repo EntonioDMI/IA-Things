@@ -1,3 +1,10 @@
+_G.MinionSize = 3
+_G.BossSize = 5
+_G.MinionTransparency = 0.5
+_G.BossTransparency = 0.5
+_G.EnableMinionHitboxes = false
+_G.EnableBossHitboxes = false
+
 -- Общий цвет и материал для всех хитбоксов
 local hitboxColor = Color3.new(1, 1, 1) -- Белый цвет по умолчанию
 local hitboxMaterial = "Neon"
