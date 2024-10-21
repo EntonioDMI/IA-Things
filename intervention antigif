@@ -1,0 +1,29 @@
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local function findObject(parent, name)
+return parent:FindFirstChild(name)
+end
+local function moveObjectTo(parent, objectName, target)
+local object = findObject(parent, objectName)
+if object then
+object.Parent = target
+return true
+end
+return false
+end
+local function toggleMainLocation()
+local mlGui = findObject(playerGui, "MLGUI")
+if mlGui then
+if moveObjectTo(mlGui, "Main", game.Workspace) then
+print("Main перемещен в Workspace")
+elseif moveObjectTo(game.Workspace, "Main", mlGui) then
+print("Main перемещен обратно в MLGUI")
+else
+print("Main не найден")
+end
+else
+print("MLGUI не найден")
+end
+end
+
+toggleMainLocation() 
