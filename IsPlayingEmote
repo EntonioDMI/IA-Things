@@ -1,0 +1,29 @@
+-- Получаем сервис Players
+local players = game:GetService("Players")
+
+-- Получаем локального игрока
+local player = players.LocalPlayer
+
+-- Проверяем, найден ли игрок
+if player then
+    -- Получаем переменную PlayingEmote
+    local playingEmote = game.Workspace:FindFirstChild(player.Name):FindFirstChild("PlayingEmote")
+
+    -- Проверяем, найдена ли переменная
+    if playingEmote then
+        -- Проверяем текущее значение переменной
+        if playingEmote.Value then
+            -- Если включена, выключаем
+            playingEmote.Value = false
+            print("PlayingEmote выключена.")
+        else
+            -- Если выключена, включаем
+            playingEmote.Value = true
+            print("PlayingEmote включена.")
+        end
+    else
+        print("Переменная PlayingEmote не найдена.")
+    end
+else
+    print("Локальный игрок не найден.")
+end
